@@ -3,9 +3,9 @@ module.exports = async function (context, req) {
 
   const name = req.query.name || (req.body && req.body.name);
   const defaultMsg =
-    'This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.';
+    'MCSS Azure cloud function executed successfully. Pass a name in the query string (?name<your name>) or in the request body.';
   const message = name
-    ? `Hello, ${name}. This HTTP triggered function executed successfully.`
+    ? `Hello, ${name}. MCSS Azure cloud function executed successfully.`
     : defaultMsg;
 
   context.res = {
