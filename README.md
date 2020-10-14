@@ -1,2 +1,3 @@
-# mcss-cloud-function
-Azure Cloud Function
+# Azure Function
+
+Test function
