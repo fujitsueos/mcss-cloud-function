@@ -4,16 +4,17 @@
   "parameters": {
     "appName": {
       "type": "string",
-      "defaultValue": "[concat('mcss-cloud-function-', uniqueString(resourceGroup().id))]",
+      "defaultValue": "mcss-cloud-function",
       "metadata": {
-        "description": "The name of the function app that you wish to create."
+        "description": "The name of the function app."
       }
     },
     "sku": {
       "type": "string",
-      "defaultValue": "S1",
+      "allowedValues": ["F1", "B1", "S1", "Y1"],
+      "defaultValue": "F1",
       "metadata": {
-        "description": "The pricing tier for the hosting plan."
+        "description": "The pricing tier for the hosting plan. (Free, Basic, Standard, Dynamic)"
       }
     },
     "workerSize": {
@@ -45,18 +46,13 @@
       "metadata": {
         "description": "The branch of the GitHub repository to use."
       }
-    },
-    "location": {
-      "type": "string",
-      "defaultValue": "[resourceGroup().location]",
-      "metadata": {
-        "description": "Location for all resources."
-      }
     }
   },
   "variables": {
-    "functionAppName": "[parameters('appName')]",
-    "hostingPlanName": "[concat(parameters('appName'), '-plan')]",
+    "appName": "[concat(parameters('appName'), uniqueString(resourceGroup().id))]",
+    "location": "[resourceGroup().location]",
+    "functionAppName": "[variables('appName')]",
+    "hostingPlanName": "[concat(variables('appName'), '-plan')]",
     "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'functions')]"
   },
   "resources": [
@@ -64,7 +60,7 @@
       "type": "Microsoft.Storage/storageAccounts",
       "apiVersion": "2019-06-01",
       "name": "[variables('storageAccountName')]",
-      "location": "[parameters('location')]",
+      "location": "[variables('location')]",
       "kind": "Storage",
       "sku": {
         "name": "[parameters('storageAccountType')]"
@@ -74,7 +70,7 @@
       "type": "Microsoft.Web/serverfarms",
       "apiVersion": "2020-06-01",
       "name": "[variables('hostingPlanName')]",
-      "location": "[parameters('location')]",
+      "location": "[variables('location')]",
       "sku": {
         "name": "[parameters('sku')]"
       },
@@ -87,7 +83,7 @@
       "apiVersion": "2020-06-01",
       "type": "Microsoft.Web/sites",
       "name": "[variables('functionAppName')]",
-      "location": "[parameters('location')]",
+      "location": "[variables('location')]",
       "kind": "functionapp",
       "dependsOn": [
         "[resourceId('Microsoft.Web/serverfarms', variables('hostingPlanName'))]",
@@ -135,7 +131,7 @@
           "apiVersion": "2020-06-01",
           "name": "web",
           "type": "sourcecontrols",
-          "location": "[parameters('location')]",
+          "location": "[variables('location')]",
           "dependsOn": ["[resourceId('Microsoft.Web/Sites', variables('functionAppName'))]"],
           "properties": {
             "repoUrl": "[parameters('repoURL')]",
