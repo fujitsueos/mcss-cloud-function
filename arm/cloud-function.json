@@ -32,6 +32,20 @@
       "metadata": {
         "description": "Storage Account type"
       }
+    },
+    "repoURL": {
+      "type": "string",
+      "defaultValue": "https://github.com/fujitsueos/mcss-cloud-function.git",
+      "metadata": {
+        "description": "The URL for the GitHub repository that contains the project to deploy."
+      }
+    },
+    "branch": {
+      "type": "string",
+      "defaultValue": "main",
+      "metadata": {
+        "description": "The branch of the GitHub repository to use."
+      }
     }
   },
   "variables": {
@@ -120,8 +134,8 @@
           "location": "[variables('location')]",
           "dependsOn": ["[resourceId('Microsoft.Web/Sites', variables('functionAppName'))]"],
           "properties": {
-            "repoUrl": "https://github.com/fujitsueos/mcss-cloud-function.git",
-            "branch": "main",
+            "repoUrl": "[parameters('repoURL')]",
+            "branch": "[parameters('branch')]",
             "isManualIntegration": false
           }
         }
