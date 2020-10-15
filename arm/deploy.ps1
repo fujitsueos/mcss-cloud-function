@@ -3,7 +3,7 @@ param (
   [Parameter()]
   [string]$ResourceGroupName = 'MCSS-Functions',
   [Parameter()]
-  [string]$TemplateFilePath = '.\cloud-function.json',
+  [string]$TemplateFilePath = '.\arm\cloud-function.json',
   [Parameter()]
   [string]$DeploymentName = 'mcss-function-deployment',
   [switch]$Validate,
@@ -12,6 +12,7 @@ param (
   [switch]$Delete
 )
 
+# root $PSScriptRoot
 $paramFile = '.' + $TemplateFilePath.split('.')[1] + '.parameters.json'
 
 if ($Validate.IsPresent) {
