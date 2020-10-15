@@ -1,5 +1,5 @@
 module.exports = async function (context, req) {
-  context.log('JavaScript HTTP trigger function processed a request.');
+  context.log('JavaScript HTTP trigger API function processed a request.');
 
   const name = req.query.name || (req.body && req.body.name);
   const defaultMsg =
