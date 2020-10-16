@@ -1,13 +1,13 @@
 {
   "$schema": "http://json.schemastore.org/proxies",
   "proxies": {
-    "items": {
+    "api-items": {
       "matchCondition": {
         "route": "/api/v1/items"
       },
       "backendUri": "https://%WEBSITE_HOSTNAME%/api/Items"
     },
-    "ui": {
+    "gui": {
       "matchCondition": {
         "route": "/"
       },
