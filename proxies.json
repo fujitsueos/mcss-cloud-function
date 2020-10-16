@@ -3,7 +3,7 @@
   "proxies": {
     "Items": {
       "matchCondition": {
-        "route": "/api/items",
+        "route": "/api/v1/items",
         "methods": ["GET", "POST"]
       },
       "backendUri": "https://%WEBSITE_HOSTNAME%/Items"
