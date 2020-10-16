@@ -7,7 +7,7 @@ module.exports = async function (context, req) {
   const htmlFilePath = path.resolve(__dirname, 'index.html');
   const htmlBody = fs.readFileSync(htmlFilePath, { encoding: 'utf8', flag: 'r' });
 
-  context.res = {
+  return {
     status: 200,
     body: htmlBody,
     headers: {

@@ -19,7 +19,7 @@ module.exports = async function (context, req) {
     },
   ];
 
-  context.res = {
+  return {
     status: 200,
     body: items,
     headers: {
