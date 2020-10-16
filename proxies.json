@@ -10,7 +10,7 @@
     },
     "UI": {
       "matchCondition": {
-        "route": "/",
+        "route": "/{*path}",
         "methods": ["GET"]
       },
       "backendUri": "https://mcss-cloud-functionbhblgyvjrofha.azurewebsites.net/UI"
