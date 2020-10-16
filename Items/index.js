@@ -10,7 +10,7 @@ module.exports = async function (context, req) {
     {
       id: 2,
       name: 'Book',
-      price: 25,
+      price: 23,
     },
     {
       id: 3,
