@@ -5,13 +5,13 @@
       "matchCondition": {
         "route": "/api/v1/items"
       },
-      "backendUri": "https://%WEBSITE_HOSTNAME%/api/Items"
+      "backendUri": "https://%WEBSITE_HOSTNAME%/Items"
     },
     "gui": {
       "matchCondition": {
         "route": "/"
       },
-      "backendUri": "https://%WEBSITE_HOSTNAME%/api/UI"
+      "backendUri": "https://%WEBSITE_HOSTNAME%/UI"
     }
   }
 }
