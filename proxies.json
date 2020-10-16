@@ -1,7 +1,7 @@
 {
   "$schema": "http://json.schemastore.org/proxies",
   "proxies": {
-    "apis": {
+    "api-items": {
       "matchCondition": {
         "route": "/api/v1/items"
       },
