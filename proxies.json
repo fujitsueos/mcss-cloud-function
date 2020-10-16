@@ -3,7 +3,7 @@
   "proxies": {
     "UI": {
       "matchCondition": {
-        "route": "/",
+        "route": "/ui",
         "methods": ["GET"]
       },
       "backendUri": "https://%WEBSITE_HOSTNAME%/UI"
