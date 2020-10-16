@@ -1,4 +1,19 @@
 {
   "$schema": "http://json.schemastore.org/proxies",
-  "proxies": {}
+  "proxies": {
+    "Items": {
+      "matchCondition": {
+        "route": "/api/items",
+        "methods": ["GET", "POST"]
+      },
+      "backendUri": "https://mcss-cloud-functionbhblgyvjrofha.azurewebsites.net/Items"
+    },
+    "UI": {
+      "matchCondition": {
+        "route": "/ui",
+        "methods": ["GET"]
+      },
+      "backendUri": "https://mcss-cloud-functionbhblgyvjrofha.azurewebsites.net/UI"
+    }
+  }
 }
