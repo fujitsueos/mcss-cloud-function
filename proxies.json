@@ -6,14 +6,14 @@
         "route": "/api/{items}",
         "methods": ["GET", "POST"]
       },
-      "backendUri": "https://mcss-cloud-functionbhblgyvjrofha.azurewebsites.net/Items"
+      "backendUri": "https://%WEBSITE_HOSTNAME%/Items"
     },
     "UI": {
       "matchCondition": {
-        "route": "/{*path}",
+        "route": "/{ui}",
         "methods": ["GET"]
       },
-      "backendUri": "https://mcss-cloud-functionbhblgyvjrofha.azurewebsites.net/UI"
+      "backendUri": "https://%WEBSITE_HOSTNAME%/UI"
     }
   }
 }
